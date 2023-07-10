@@ -1,0 +1,87 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .dialog-title{
+    font-size: xx-large;
+    margin: 20px;
+  }
+  .example-full-width {
+    width: 100%;
+  }
+  .dialog-div-date{
+    display: flex;
+    justify-content: space-between;
+  }
+  .dialog-button{
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .dialog-button-add{
+    background-color: #424242 !important;
+    color: #ffffff !important;
+  }
+  
+  :host ::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled){
+    background-color: transparent;
+  }
+  .textarea-note{
+    resize: none;
+    height: 150px;
+  }
+  :host ::ng-deep .mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-line-ripple::after {
+    border-bottom-color: var(--mdc-theme-error, #f44336);
+  }
+
+  :host ::ng-deep .mdc-text-field--filled .mdc-line-ripple::after {
+    border-bottom-color: #424242;
+  }
+  
+  :host ::ng-deep  .mdc-text-field--invalid .mdc-text-field__input {
+    caret-color: var(--mdc-theme-error, #f44336);
+  }
+
+  :host ::ng-deep .mdc-text-field .mdc-text-field__input {
+    caret-color: var(--mdc-theme-primary, #424242);
+  }
+  :host ::ng-deep .mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+    color: var(--mdc-theme-primary, #424242);
+}
+  :host ::ng-deep .mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-floating-label {
+    color: var(--mdc-theme-error, #f44336);
+}
+  .input-id{
+    display: none;
+  }
+  @media screen and (max-width: 650px){
+    :host ::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled){
+      width: 250px;
+    }
+    .dialog-div-date{
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  @media screen and (max-width: 375px){
+    :host ::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled){
+      width: 220px;
+    }
+    .dialog-div-date{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    :host ::ng-deep .mat-mdc-form-field {
+      --mat-mdc-form-field-floating-label-scale: 0.75;
+      flex-direction: column;
+      min-width: 0;
+      text-align: left;
+      display: inline-grid;
+  }
+  }
+  

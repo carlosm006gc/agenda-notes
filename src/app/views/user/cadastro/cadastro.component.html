@@ -1,0 +1,54 @@
+<div class="div-cad">
+    <h3>Faça o login ou cadastre-se</h3>
+    <input class="input-check" (click)="showDiv()" type="checkbox">
+        <div  *ngIf="check" id="cad">
+            <form class="card">
+                <div class="card-header-cad">
+                    <h2>Cadastre-se</h2>
+                </div>
+                <div class="card-content">
+                    <div class="card-content-area  input-id">
+                        <input placeholder="ID" formControlName="id" name="id">
+                    </div>
+                    <div class="card-content-area">
+                        <label for="name">Nome</label>
+                        <input type="text" id="nome" name="nome" formControlName="nome">
+                    </div>
+                    <div class="card-content-area">
+                        <label for="email">Email</label>
+                        <input type="email" id="username" name="username" formControlName="username">
+                    </div>
+                    <div class="card-content-area">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" name="password" formControlName="password">
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <input type="submit" routerLink="/home" value="Cadastrar" class="submit">
+                    <a href="#" class="recuperar_senha">Esqueceu a senha?</a>
+                </div>
+            </form>
+        </div>
+    <div  *ngIf="checkL" id="login">
+        <form class="card">
+            <div class="card-header">
+                <h2>Login</h2>
+            </div>
+            <div class="card-content">
+                <div class="card-content-area">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" autocomplete="off">
+                </div>
+                <div class="card-content-area">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" autocomplete="off">
+                </div>
+            </div>
+            <div class="card-footer">
+                <input type="submit" value="login" class="submit">
+                <a routerLink="/home"><button class="button-cad">home</button></a><br>
+                <a href="#" class="recuperar_senha">Esqueceu a senha?</a>
+            </div>
+        </form>
+    </div>
+</div>

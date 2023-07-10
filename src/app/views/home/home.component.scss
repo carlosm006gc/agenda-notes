@@ -1,0 +1,48 @@
+
+mat-toolbar{
+    background-color: transparent;
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    box-shadow: 0 38px 60px -35px #e9585881;
+    border-radius: 40px;    
+}
+.span-home{
+    letter-spacing: 2px;
+    margin-left: 10px;
+    font-size: 1.2em;
+    color: #ffffff;
+}
+.icon-home{
+    color: #ffffff;
+    background-color: transparent;
+    font-size: 2em;
+}
+.button-home{
+    background-color: transparent;
+    border-color: transparent;
+    border-radius: 5px;
+}
+
+.button-home-add{
+    background-image: linear-gradient(to right, #ECE9E6 0%, #FFFFFF 51%, #ECE9E6 100%);    color: #114696;
+    display: flex;
+    justify-content: center;
+    font-size: 1em;
+    align-items: center;
+    border: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+    text-transform: lowercase;
+    transition: .5s;
+    background-size: 200% auto;
+    box-shadow: 0 0 10px #eee;
+    color: #3F3F3F;
+}
+.button-home-add:hover{
+    background-position: right center;
+    color: #9e2828;
+    text-decoration: none;
+}

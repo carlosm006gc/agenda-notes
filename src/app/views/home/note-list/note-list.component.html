@@ -1,0 +1,91 @@
+<mat-tab-group animationDuration="1000ms">
+  <mat-tab>
+    <mat-progress-bar *ngIf="!next" mode="indeterminate"></mat-progress-bar>
+    <ng-template mat-tab-label>
+      <div class="label">Próximas</div>
+    </ng-template>
+    <div *ngIf="next" class="div-row-note">
+      <ng-container *ngFor="let note of notesNext">
+        <mat-card class="mat-card">
+          <mat-card-title class="card-title">
+            <div class="div-row">
+              <p class="row">
+                <span class="span-note-name">{{note.title}}</span>
+                <mat-chip class="mat-chip-note">
+                  <div mat-dialog-actions>
+                    <button mat-icon-button [matMenuTriggerFor]="menu">
+                      <mat-icon>more_vert</mat-icon>
+                    </button> <mat-menu #menu="matMenu">
+                      <button mat-button (click)="deleteNotes(note.id)" color="warn">Excluir</button>
+                      <button mat-button (click)="updateNotes(note.id)">Editar</button>
+                    </mat-menu>
+                  </div>
+                </mat-chip>
+              </p>
+            </div>
+
+          </mat-card-title>
+          <mat-chip class="span-date">
+            <div class="span-date">
+              <span class="span-date">
+                {{note.agendaDate | localDateTimePipe}}
+              </span>
+            </div>
+          </mat-chip>
+          <mat-card-content>
+            <div>
+              <span>
+                {{note.agendaBody}}
+              </span>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </ng-container>
+    </div>
+  </mat-tab>
+  <mat-tab>
+    <mat-progress-bar *ngIf="!waiting" mode="indeterminate"></mat-progress-bar>
+    <ng-template mat-tab-label>
+      <div class="label">Aguardando</div>
+    </ng-template>
+    <div *ngIf="waiting" class="div-row-note">
+      <ng-container *ngFor="let note of notesWaiting">
+        <mat-card class="mat-card">
+          <mat-card-title class="card-title">
+            <div class="div-row">
+              <p class="row">
+                <span class="span-note-name">{{note.title}}</span>
+                <mat-chip class="mat-chip-note">
+                  <div mat-dialog-actions>
+                    <button mat-icon-button [matMenuTriggerFor]="menu">
+                      <mat-icon>more_vert</mat-icon>
+                    </button> <mat-menu #menu="matMenu">
+                      <button mat-button (click)="deleteNotes(note.id)" color="warn">Excluir</button>
+                      <button mat-button (click)="updateNotes(note.id)">Editar</button>
+                    </mat-menu>
+                  </div>
+                </mat-chip>
+              </p>
+            </div>
+          </mat-card-title>
+          <mat-card-title class="card-title">
+            <div class="div-row">
+              <p class="row">
+                <span class="span-note-name"> 
+                  {{note.agendaDate | localDateTimePipe}}
+                </span>
+              </p>
+            </div>
+          </mat-card-title>
+          <mat-card-content>
+            <div>
+              <span>
+                {{note.agendaBody}}
+              </span>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </ng-container>
+    </div>
+  </mat-tab>
+</mat-tab-group>
