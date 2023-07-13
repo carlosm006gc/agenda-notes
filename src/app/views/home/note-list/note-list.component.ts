@@ -17,7 +17,6 @@ export class NoteListComponent implements OnInit {
   notesFinished: Note[];
   next: boolean = false;
   waiting: boolean = false;
-  finished: boolean = false;
   url: string = '';
   urlSafe: SafeResourceUrl;
   Note: Note[];
@@ -70,15 +69,6 @@ export class NoteListComponent implements OnInit {
       });
       this.waiting = true;
     });
-
-    this.rest.getNotesWithFlag('finished').subscribe(data => {
-      this.notesFinished = data.content;
-      this.notesFinished.forEach(note => {
-        note.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(note.agendaBody);
-      });
-      this.finished = true;
-    });
-
 
   }
   deleteNotes(id: string){

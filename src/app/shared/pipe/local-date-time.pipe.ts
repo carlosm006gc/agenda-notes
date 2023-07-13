@@ -1,12 +1,16 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { format } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 
 @Pipe({
   name: 'localDateTimePipe'
 })
 export class LocalDateTimePipe implements PipeTransform {
+
   transform(date: string): string {
-    const formattedDate = format(new Date(date), 'dd-MM-yyyy HH:mm');
+    const dateObj = parseISO(date);
+    const formattedDate = format(dateObj, 'dd-MM-yyyy HH:mm');
+    console.log(formattedDate)
     return formattedDate;
   }
+
 }

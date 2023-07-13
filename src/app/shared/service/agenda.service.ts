@@ -9,7 +9,7 @@ import { ResponsePageable } from '../model/responsePageable.model';
 })
 export class NoteService {
 
-  apiUrl = 'http://localhost:8080/notes';
+  apiUrl = 'https://agenda-notes-backend-production.up.railway.app/notes';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -27,7 +27,7 @@ export class NoteService {
   }
 
   public deleteNote(id: string){
-    return this.httpClient.delete("http://localhost:8080/notes/".concat(id));
+    return this.httpClient.delete("https://agenda-notes-backend-production.up.railway.app/notes/".concat(id));
   }
 
   public idNotes(id: string): Observable<Note> {
