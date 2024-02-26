@@ -49,7 +49,6 @@ export class NoteListComponent implements OnInit {
     });
   }
   updateNotes(id: any) {
-    console.log('update note');
     this.openForm(id);
   }
   

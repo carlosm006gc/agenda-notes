@@ -25,6 +25,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { CadastroComponent } from './views/user/cadastro/cadastro.component';
+import { InfoPageComponent } from './views/info-page/info-page.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { CadastroComponent } from './views/user/cadastro/cadastro.component';
     LocalDateTimePipe,
     NoteFormDialogComponent,
     CadastroComponent,
+    InfoPageComponent,
   ],
   imports: [
     HttpClientModule,

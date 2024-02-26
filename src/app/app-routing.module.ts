@@ -1,23 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './views/home/home.component';
-import { CadastroComponent } from './views/user/cadastro/cadastro.component';
+import { InfoPageComponent } from './views/info-page/info-page.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: CadastroComponent
-  },
-  {
-    path:'home',
-    component: HomeComponent
-  },
-  {
-    path:'cadastrar',
-    component: CadastroComponent
-  }
-    
-  ];
+  { path: '', component: InfoPageComponent },
+  { path: 'info', component: HomeComponent }, 
+  { path: '**', redirectTo: '' } 
+];
   
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
