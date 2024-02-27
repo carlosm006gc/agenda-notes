@@ -71,6 +71,7 @@
     :host ::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled){
       width: 220px;
     }
+
     .dialog-div-date{
       display: flex;
       flex-direction: column;
@@ -81,7 +82,6 @@
       flex-direction: column;
       min-width: 0;
       text-align: left;
-      display: inline-grid;
   }
   }
   

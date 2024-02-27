@@ -2,14 +2,16 @@
     <div class="navbar">
         <div class="navbar-container">
           <ul>
-            <li><a routerLink="/">Página Principal</a></li>
-            <li><a routerLink="/info">Guia do Usuário</a></li>
+            <li><a routerLink="/">Guia do Usuário</a></li>
+            <li><a routerLink="/home">AgendaNotes</a></li>
           </ul>
         </div>
       </div>  
 <div class="info-div">
+  <div class="col-1">    
     <h1>Guia do Usuário - AgendaNotes</h1>
-    <section >
+  </div>
+    <section class="sec-func">
       <h2>Sobre o Sistema</h2>
       <p>
         Bem-vindo ao AgendaNotes, um sistema de organização de Notas.
@@ -32,9 +34,10 @@
       </ul>
     </section>
   
-    <section>
+    <section class="sec-func">
       <h2>Observações Importantes</h2>
       <p>
+        Para voltar ao guia, basta clicar no Icon da AgendaNotes.
         Certifique-se de fornecer a data desejada para suas notas, garantindo uma organização adequada.
         Em caso de lentidão, pode haver atrasos na execução das operações CRUD devido ao deploy.
       </p>

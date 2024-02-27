@@ -5,7 +5,7 @@ import { InfoPageComponent } from './views/info-page/info-page.component';
 
 const routes: Routes = [
   { path: '', component: InfoPageComponent },
-  { path: 'info', component: HomeComponent }, 
+  { path: 'home', component: HomeComponent }, 
   { path: '**', redirectTo: '' } 
 ];
   
