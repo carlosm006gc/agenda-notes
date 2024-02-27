@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { Router } from '@angular/router'; // Importe o Router
 import { Note } from 'src/app/shared/model/agenda.model';
 import { NoteService } from 'src/app/shared/service/agenda.service';
 import { NoteFormDialogComponent } from '../note-form-dialog/note-form-dialog.component';
@@ -11,69 +12,69 @@ import { NoteFormDialogComponent } from '../note-form-dialog/note-form-dialog.co
   styleUrls: ['./note-list.component.scss']
 })
 export class NoteListComponent implements OnInit {
-
   notesNext: Note[];
   notesWaiting: Note[];
-  notesFinished: Note[];
   next: boolean = false;
   waiting: boolean = false;
-  url: string = '';
-  urlSafe: SafeResourceUrl;
-  Note: Note[];
   checked: boolean = false;
-  id: Note[];
-  @Inject(MAT_DIALOG_DATA) public data: any
 
   constructor(
     private rest: NoteService,
     public sanitizer: DomSanitizer,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router: Router // Injete o Router
   ) { }
 
   ngOnInit() {
-   this.getNotes();
+    this.getNotes();
   }
-
-
 
   openForm(id: any) {
     const _popup = this.dialog.open(NoteFormDialogComponent, {
-      minWidth:'270px',
-      data: {
-        id: id
-      }
+      minWidth: '270px',
+      data: { id: id }
     });
 
     _popup.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
   }
+
   updateNotes(id: any) {
     this.openForm(id);
+    this.navigateToHome();
   }
-  
-  getNotes(){
+
+  getNotes() {
     this.rest.getNotesWithFlag('next').subscribe(data => {
-      this.notesNext = data.content;
-      this.notesNext.forEach(note => {
-        note.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(note.agendaBody);
-      });
+      this.notesNext = this.processNotes(data);
       this.next = true;
     });
 
     this.rest.getNotesWithFlag('waiting').subscribe(data => {
-      this.notesWaiting = data.content;
-      this.notesWaiting.forEach(note => {
-        note.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(note.agendaBody);
-      });
+      this.notesWaiting = this.processNotes(data);
       this.waiting = true;
     });
+  }
 
+  processNotes(data: any): Note[] {
+    return data.content.map((note: Note) => {
+      note.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(note.agendaBody);
+      return note;
+    });
   }
-  deleteNotes(id: string){
-    this.rest.deleteNote(id).subscribe(result => {});
-    console.log('id deleted');
-    window.location.reload();
+
+  deleteNotes(id: string) {
+    this.rest.deleteNote(id).subscribe(result => {
+      this.getNotes();
+      console.log('id deleted');
+      this.navigateToHome();
+    });
   }
-  
+
+  navigateToHome() {
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/']);
+    });
+  }
 }
