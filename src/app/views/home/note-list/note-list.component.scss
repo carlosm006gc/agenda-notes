@@ -148,7 +148,10 @@
     width: 100%;
     position: relative;
   }
-  
+  :host ::ng-deep .mat-mdc-icon-button {
+    --mat-mdc-button-persistent-ripple-color: #00000000;
+    --mat-mdc-button-ripple-color: rgba(0, 0, 0, 0);
+}
   @media screen and (max-width: 980px) {
     .div-row-note {
       justify-content: space-between;
